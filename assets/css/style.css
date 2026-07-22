@@ -32,6 +32,16 @@ nav.main a:hover, nav.main a.active{color:var(--ink);border-color:var(--accent)}
 .phone-link{font-weight:700;color:var(--ink);font-size:16px;white-space:nowrap}
 .phone-link:hover{color:var(--accent)}
 .phone-link.big{font-size:22px;color:var(--accent)}
+
+.placeholder{
+  display:inline-block;color:#8a5a00;background:#fff6df;border:1px dashed #d9a441;
+  border-radius:6px;padding:2px 8px;font-weight:700;font-family:"SFMono-Regular",Consolas,monospace;
+  font-size:13px;cursor:default;white-space:nowrap;
+}
+a.btn.placeholder, span.btn.placeholder{
+  background:#fff6df;color:#8a5a00;border:1px dashed #d9a441;font-family:"SFMono-Regular",Consolas,monospace;font-size:14px;
+}
+.card p .placeholder, p .placeholder{white-space:normal}
 .btn{background:var(--accent);color:#fff;padding:11px 20px;border-radius:8px;font-weight:600;border:none;cursor:pointer;display:inline-block}
 .btn:hover{background:var(--accent-dark)}
 .btn.ghost{background:transparent;border:1px solid var(--accent);color:var(--accent)}

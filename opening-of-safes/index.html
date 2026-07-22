@@ -29,7 +29,7 @@
   "name": "Вскрытие сейфов",
   "description": "Вскрытие сейфов в Минске и области.",
   "url": "https://vskrytseif.by/opening-of-safes/",
-  "provider": {"@type":"LocalBusiness","name":"ВскрытьСейф.бел","telephone":"+999999999"},
+  "provider": {"@type":"LocalBusiness","name":"ВскрытьСейф.бел"},
   "areaServed": {"@type":"City","name":"Минск"}
 }
 </script><script type="application/ld+json">
@@ -56,7 +56,7 @@
 <a href="../about/" class="">О компании</a>
 <a href="../contacts/" class="">Контакты</a></nav>
     <div class="contact">
-      <a class="phone-link" href="tel:999999999" data-track="phone_click">999999999</a>
+      <span class="phone-link placeholder" data-track="phone_pending">[[НУЖЕН ТЕЛЕФОН]]</span>
       <a class="btn" href="../contacts/">Оставить заявку</a>
     </div>
     <button class="burger" type="button" aria-label="Открыть меню" aria-expanded="false" aria-controls="mobile-menu">
@@ -64,7 +64,7 @@
     </button>
   </div>
   <nav id="mobile-menu" class="mobile-menu" aria-hidden="true">
-    <a class="phone-link big" href="tel:999999999" data-track="phone_click">999999999</a>
+    <span class="phone-link big placeholder" data-track="phone_pending">[[НУЖЕН ТЕЛЕФОН]]</span>
     <a href="../" class="">Главная</a>
 <a href="../opening-of-safes/" class="active">Вскрытие сейфов</a>
 <a href="../catalog/" class="">Каталог брендов</a>
@@ -259,23 +259,23 @@ Lucell, Oldi, Secure Line, Stockinger, Waldis, Boca do Lobo, Liberty Safes, Nobi
 <thead><tr><th>Сейфы и типы замков</th><th style="text-align:right">Цена</th></tr></thead>
 <tbody>
 <tr class="group"><td colspan="2">Вскрытие металлических шкафов и картотек: Практик, ДВК, Диком, MDTB, Nobilis, Агат, Кобальт и др.</td></tr>
-<tr><td>Сувальдный замок</td><td class="price">по запросу</td></tr>
-<tr><td>Штифтовой или рамочный замок</td><td class="price">по запросу</td></tr>
+<tr><td>Сувальдный замок</td><td class="price">[[ЦЕНА BYN]]</td></tr>
+<tr><td>Штифтовой или рамочный замок</td><td class="price">[[ЦЕНА BYN]]</td></tr>
 
 <tr class="group"><td colspan="2">Вскрытие офисных и мебельных сейфов: Valberg, Aiko, Format, Juwel, Safetronics и др.</td></tr>
-<tr><td>Сувальдный замок</td><td class="price">по запросу</td></tr>
-<tr><td>Электронный код</td><td class="price">по запросу</td></tr>
+<tr><td>Сувальдный замок</td><td class="price">[[ЦЕНА BYN]]</td></tr>
+<tr><td>Электронный код</td><td class="price">[[ЦЕНА BYN]]</td></tr>
 
 <tr class="group"><td colspan="2">Вскрытие огнестойких сейфов класса взломостойкости 0: Topaz, ChubbSafes, Sigma, Onix, Diall, Rhino и др.</td></tr>
-<tr><td>Сувальдный замок</td><td class="price">по запросу</td></tr>
-<tr><td>Штифтовой или рамочный замок</td><td class="price">по запросу</td></tr>
+<tr><td>Сувальдный замок</td><td class="price">[[ЦЕНА BYN]]</td></tr>
+<tr><td>Штифтовой или рамочный замок</td><td class="price">[[ЦЕНА BYN]]</td></tr>
 
 <tr class="group"><td colspan="2">Вскрытие взломостойких и банковских сейфов: Diebold Nixdorf, Ripost, Stockinger, Liberty Safes, Secure Line и др.</td></tr>
-<tr><td>Электронный код</td><td class="price">по запросу</td></tr>
-<tr><td>Комбинированный замок (ключ + код)</td><td class="price">по запросу</td></tr>
+<tr><td>Электронный код</td><td class="price">[[ЦЕНА BYN]]</td></tr>
+<tr><td>Комбинированный замок (ключ + код)</td><td class="price">[[ЦЕНА BYN]]</td></tr>
 
-<tr><td>Вскрытие при исправных замках и ключах с восстановлением дверцы</td><td class="price">по запросу</td></tr>
-<tr><td>Аварийный выезд в нерабочее время (вечер, выходные)</td><td class="price">по запросу</td></tr>
+<tr><td>Вскрытие при исправных замках и ключах с восстановлением дверцы</td><td class="price">[[ЦЕНА BYN]]</td></tr>
+<tr><td>Аварийный выезд в нерабочее время (вечер, выходные)</td><td class="price">[[ЦЕНА BYN]]</td></tr>
 </tbody>
 </table>
 </div>
@@ -318,9 +318,9 @@ Lucell, Oldi, Secure Line, Stockinger, Waldis, Boca do Lobo, Liberty Safes, Nobi
     <div>
       <h4>Контакты</h4>
       <p>
-        <a class="phone-link" href="tel:999999999" data-track="phone_click">999999999</a><br>
+        <span class="phone-link placeholder" data-track="phone_pending">[[НУЖЕН ТЕЛЕФОН]]</span><br>
         Минск и Минская область<br>
-        Режим работы: уточняется
+        Режим работы: [[НУЖНЫ ЧАСЫ РАБОТЫ]]
       </p>
     </div>
   </div>
@@ -330,8 +330,7 @@ Lucell, Oldi, Secure Line, Stockinger, Waldis, Boca do Lobo, Liberty Safes, Nobi
   </div>
 </footer>
 <div class="mobile-cta">
-  <a class="call" href="tel:999999999" data-track="phone_click">Позвонить 999999999</a>
-  <a href="../contacts/">Заявка</a>
+  <a class="call" href="../contacts/">Оставить заявку</a>
 </div>
 <script src="../assets/js/main.js" defer></script>
 </body>

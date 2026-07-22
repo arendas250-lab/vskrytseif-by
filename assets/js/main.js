@@ -144,7 +144,7 @@
 
         if (!LEAD_ENDPOINT) {
           // Эндпоинт приёма заявок не настроен — сообщаем об этом честно, не притворяясь успехом.
-          status.textContent = "Форма не подключена к серверу приёма заявок: не указан LEAD_ENDPOINT в assets/js/main.js. Пожалуйста, позвоните нам напрямую.";
+          status.textContent = "Форма не подключена к серверу приёма заявок: не указан LEAD_ENDPOINT в assets/js/main.js.";
           status.className = "form-status show error";
           if (submitBtn) submitBtn.disabled = false;
           return;
@@ -163,7 +163,7 @@
             form.reset();
           })
           .catch(function () {
-            status.textContent = "Не удалось отправить заявку. Пожалуйста, позвоните нам напрямую.";
+            status.textContent = "Не удалось отправить заявку. Попробуйте ещё раз позже.";
             status.className = "form-status show error";
           })
           .finally(function () {
