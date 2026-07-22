@@ -1,0 +1,32 @@
+# ЗАГЛУШКА: домен vskrytseif.by ниже — подтвердить реальный перед деплоем.
+# Пример серверных блоков nginx для единого варианта домена, HTTPS-редиректа и кастомной 404.
+
+server {
+    listen 80;
+    server_name vskrytseif.by www.vskrytseif.by;
+    return 301 https://vskrytseif.by$request_uri;
+}
+
+server {
+    listen 443 ssl http2;
+    server_name www.vskrytseif.by;
+    # ssl_certificate ...; ssl_certificate_key ...;
+    return 301 https://vskrytseif.by$request_uri;
+}
+
+server {
+    listen 443 ssl http2;
+    server_name vskrytseif.by;
+    # ssl_certificate ...; ssl_certificate_key ...;
+
+    root /var/www/vskrytseif-by;
+    index index.html;
+
+    error_page 404 /404.html;
+    location = /404.html { internal; }
+
+    # редирект без завершающего слеша -> со слешем для «каталожных» путей
+    location / {
+        try_files $uri $uri/ =404;
+    }
+}
