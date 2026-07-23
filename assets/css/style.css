@@ -62,7 +62,7 @@ a.btn.placeholder, span.btn.placeholder{
 .hero h1{font-size:34px;line-height:1.25;margin:0 0 14px;max-width:720px;color:var(--ink)}
 .hero.hero-photo{
   background-image:url("../../img/hero-safe.jpg");
-  background-image:image-set(url("../../img/hero-safe.webp") type("image/webp") 1x, url("../../img/hero-safe.jpg") type("image/jpeg") 1x);
+  background-image:image-set(url("../../img/hero-safe.avif") type("image/avif") 1x, url("../../img/hero-safe.webp") type("image/webp") 1x, url("../../img/hero-safe.jpg") type("image/jpeg") 1x);
   background-size:cover;
   background-position:center right;
   padding:72px 0;
@@ -71,7 +71,7 @@ a.btn.placeholder, span.btn.placeholder{
 @media(max-width:800px){
   .hero.hero-photo{
     background-image:url("../../img/hero-safe-mobile.jpg");
-    background-image:image-set(url("../../img/hero-safe-mobile.webp") type("image/webp") 1x, url("../../img/hero-safe-mobile.jpg") type("image/jpeg") 1x);
+    background-image:image-set(url("../../img/hero-safe-mobile.avif") type("image/avif") 1x, url("../../img/hero-safe-mobile.webp") type("image/webp") 1x, url("../../img/hero-safe-mobile.jpg") type("image/jpeg") 1x);
   }
 }
 .hero.hero-photo .container{position:relative;z-index:1}
