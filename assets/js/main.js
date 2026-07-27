@@ -2,9 +2,12 @@
   "use strict";
 
   // ---------- КОНФИГ ФОРМЫ ----------
-  // ЗАГЛУШКА: реальный адрес приёма заявок (Telegram Bot API / CRM-вебхук) не предоставлен.
-  // Подставьте сюда рабочий URL, который принимает POST с JSON telом (см. buildPayload ниже).
-  var LEAD_ENDPOINT = ""; // например: "https://api.telegram.org/bot<TOKEN>/sendMessage" через прокси, или свой webhook
+  // Заявки уходят на серверный прокси (Cloudflare Worker, см. server/telegram-lead-worker.js),
+  // который пересылает их в Telegram. Токен бота и chat_id хранятся только в секретах воркера,
+  // а не в этом файле — сюда попадает лишь публичный URL воркера.
+  // TODO: подставить реальный URL после деплоя воркера, например:
+  // "https://vskrytseif-lead.<ваш-субдомен>.workers.dev"
+  var LEAD_ENDPOINT = "";
 
   function qs(sel, ctx) { return (ctx || document).querySelector(sel); }
   function qsa(sel, ctx) { return Array.prototype.slice.call((ctx || document).querySelectorAll(sel)); }
@@ -144,7 +147,7 @@
 
         if (!LEAD_ENDPOINT) {
           // Эндпоинт приёма заявок не настроен — сообщаем об этом честно, не притворяясь успехом.
-          status.textContent = "Форма не подключена к серверу приёма заявок: не указан LEAD_ENDPOINT в assets/js/main.js.";
+          status.textContent = "Не удалось отправить. Позвоните по номеру +375 29 771-77-97.";
           status.className = "form-status show error";
           if (submitBtn) submitBtn.disabled = false;
           return;
@@ -157,13 +160,13 @@
         })
           .then(function (res) {
             if (!res.ok) throw new Error("HTTP " + res.status);
-            status.textContent = "Заявка отправлена. Мастер свяжется с вами.";
+            status.textContent = "Заявка отправлена. Свяжемся с вами в течение 5 минут.";
             status.className = "form-status show success";
             pushDataLayer("generate_lead", { utm: payload.utm, page_path: window.location.pathname });
             form.reset();
           })
           .catch(function () {
-            status.textContent = "Не удалось отправить заявку. Попробуйте ещё раз позже.";
+            status.textContent = "Не удалось отправить. Позвоните по номеру +375 29 771-77-97.";
             status.className = "form-status show error";
           })
           .finally(function () {
