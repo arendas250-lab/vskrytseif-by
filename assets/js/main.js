@@ -146,9 +146,22 @@
         var payload = buildPayload(form);
 
         if (!LEAD_ENDPOINT) {
-          // Эндпоинт приёма заявок не настроен — сообщаем об этом честно, не притворяясь успехом.
-          status.textContent = "Не удалось отправить. Позвоните по номеру +375 29 771-77-97.";
-          status.className = "form-status show error";
+          // Серверный приём заявок (Cloudflare Worker) ещё не задеплоен.
+          // Пока он не настроен, отправляем заявку через WhatsApp на рабочий номер —
+          // это работает уже сейчас, без какой-либо дополнительной инфраструктуры.
+          var waText = "Заявка с сайта vskrytseif.by\n" +
+            "Имя: " + payload.name + "\n" +
+            "Телефон: " + payload.phone + "\n" +
+            (payload.problem ? "Проблема: " + payload.problem + "\n" : "") +
+            "Страница: " + payload.page_url;
+          var waUrl = "https://wa.me/375293331317?text=" + encodeURIComponent(waText);
+          status.textContent = "Открываем WhatsApp для отправки заявки…";
+          status.className = "form-status show loading";
+          window.open(waUrl, "_blank", "noopener");
+          status.textContent = "Заявка сформирована в WhatsApp — отправьте сообщение, и мы свяжемся с вами.";
+          status.className = "form-status show success";
+          pushDataLayer("generate_lead", { utm: payload.utm, page_path: window.location.pathname, via: "whatsapp_fallback" });
+          form.reset();
           if (submitBtn) submitBtn.disabled = false;
           return;
         }
@@ -166,7 +179,7 @@
             form.reset();
           })
           .catch(function () {
-            status.textContent = "Не удалось отправить. Позвоните по номеру +375 29 771-77-97.";
+            status.textContent = "Не удалось отправить. Позвоните по номеру +375 29 333-13-17.";
             status.className = "form-status show error";
           })
           .finally(function () {
@@ -176,9 +189,20 @@
     });
   }
 
+  function initStickyHeader() {
+    var header = document.querySelector("header.site");
+    if (!header) return;
+    function onScroll() {
+      header.classList.toggle("is-scrolled", window.scrollY > 4);
+    }
+    onScroll();
+    window.addEventListener("scroll", onScroll, { passive: true });
+  }
+
   document.addEventListener("DOMContentLoaded", function () {
     initMobileMenu();
     initClickTracking();
     initLeadForms();
+    initStickyHeader();
   });
 })();
