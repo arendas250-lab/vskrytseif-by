@@ -1,4 +1,5 @@
 User-agent: *
-Allow: /
+Disallow: /server/
+Disallow: /nginx.conf.example
 
-Sitemap: https://vskrytseif.by/sitemap.xml
+Sitemap: https://xn--b1agmc4aechv9dm.xn--90ais/sitemap.xml

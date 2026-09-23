@@ -177,7 +177,7 @@ h2.h-title{font-size:26px;margin:0 0 24px;color:var(--ink)}
 .cta-band .btn:hover{background:#eef6f7}
 
 footer.site{background:var(--surface);color:var(--muted);padding:40px 0 24px;font-size:14px;border-top:1px solid var(--line)}
-footer.site h4{color:var(--ink);font-size:15px;margin:0 0 12px}
+footer.site .foot-title{color:var(--ink);font-size:15px;font-weight:700;margin:0 0 12px}
 .footer-grid{display:grid;grid-template-columns:2fr 1fr 1fr 1.4fr;gap:24px}
 .footer-grid a{display:block;color:var(--muted);padding:4px 0}
 .footer-grid a:hover{color:var(--accent)}
